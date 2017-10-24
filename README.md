@@ -1,2 +1,2 @@
 # blog
-A simple practice of making a blog
+自己做的blog页面
