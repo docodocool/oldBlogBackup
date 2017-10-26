@@ -1,26 +1,13 @@
-//smartFloat()来自于:https://www.helloweba.com/view-blog-194.html
-$.fn.smartFloat = function () {
+//smartFloat()来自于:http://www.cnblogs.com/bobodeboke/p/4565382.html
+$.fn.smartFloat = function (para) {
     var position = function (element) {
-        var top = element.position().top; //当前元素element距浏览器上边距
-        var pos = element.css("position"); //元素距document顶部距离
+        var top = element.offset().top; //当前元素element距浏览器上边距
         $(window).scroll(function () { //侦听滚动
             var scrolls = $(this).scrollTop();
-            if (scrolls > top) { //如果滚动到页面超出了当前元素element的相对页面顶部的高度 
-                if (window.XMLHttpRequest) { //如果不是ie6
-                    element.css({
-                        position: "fixed",
-                        top: 0,
-                    });
-                } else {
-                    element.css({
-                        top: scrolls,
-                    });
-                };
+            if (scrolls - top > para) { //如果滚动到页面超出了当前元素element的相对页面顶部的高度 
+                element.addClass("navbar-fixed-top");
             } else {
-                element.css({
-                    position: pos,
-                    top: top,
-                });
+                element.removeClass("navbar-fixed-top");
             };
         });
     };
@@ -31,6 +18,7 @@ $.fn.smartFloat = function () {
 
 $(function () {
     $("#bgimg").height($(window).height());
-    $(".headerbox").height($(window).height());
-    $(".navbar").smartFloat();
+    $(".headerbox").height($(window).height() - 75);
+    $(".side-bar").height($(window).height() - 150);
+    $(".navbar").smartFloat(0);
 });

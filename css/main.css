@@ -51,8 +51,8 @@ a:focus {
     padding: 12.5px 200px;
     margin-bottom: 0;
     border: none;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute; */
+    /* bottom: 0; */
     z-index: 3;
 }
 
@@ -62,7 +62,7 @@ a:focus {
     font-size: 30px;
 }
 
-.nav-item:nth-child(2){
+.nav-item:nth-child(2) {
     border-left: 2px solid #999;
     border-right: 2px solid #999;
 }
@@ -70,15 +70,26 @@ a:focus {
 .mainpanel {
     background-color: #f3f3f3;
     position: relative;
+    padding-top: 10px;
 }
 
-.container {
+.contain {
     width: 75%;
     height: 1500px;
+    margin: 0 auto;
 }
 
 .main-column,
 .side-bar {
-    padding: 5px;
-    border: 2px solid black;
+    padding: 15px;
+}
+
+.main-column {
+    width: 72%;
+    float: left;
+}
+
+.side-bar {
+    width: 25%;
+    float: right;
 }
