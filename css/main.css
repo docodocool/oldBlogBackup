@@ -77,6 +77,7 @@ a:focus {
     background-color: #f3f3f3;
     position: relative;
     padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .contain {
@@ -99,7 +100,7 @@ a:focus {
 
 .side-bar {
     width: 25%;
-    height: 500px;
+    height: 450px;
     float: right;
 }
 
@@ -107,4 +108,9 @@ a:focus {
     top: 75px;
     /* left: 927px; */
     width: 253px;
+}
+
+footer{
+    background-color: #fff;
+    height: 50px;
 }
