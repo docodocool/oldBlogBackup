@@ -22,8 +22,7 @@ $(function () {
     $(".headerbox").height($(window).height() - 65);
     $(".navbar").smartFloat(0, "navbar-fixed-top");
 
-    var cssleft=$(".side-bar").offset().left;
-    $(".side-bar").css("left",cssleft);
+    $(".side-bar").css("left",$(".side-bar").offset().left);
 
     $(".side-bar").affix({
         offset: {
@@ -35,7 +34,9 @@ $(function () {
     console.log($(".side-bar").offset().left);
 });
 
+//--------------------Vue--------------------------------
 
+//主页导航栏三个按钮[首页|blog|小练习]
 var mainpage = new Vue({
     el: "#mainpage",
     methods: {
