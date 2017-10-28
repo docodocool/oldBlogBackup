@@ -1,5 +1,5 @@
 //smartFloat()来自于:http://www.cnblogs.com/bobodeboke/p/4565382.html
-$.fn.smartFloat = function (dis,cla) {
+$.fn.smartFloat = function (dis, cla) {
     var position = function (element) {
         var top = element.offset().top; //当前元素element距浏览器上边距
         $(window).scroll(function () { //侦听滚动
@@ -16,55 +16,60 @@ $.fn.smartFloat = function (dis,cla) {
     });
 };
 
-// $(".side-bar").affix({
-//     offset:{
-//         top:$(".side-bar").offset().top-70,
-//         bottom:($("footer").outerHeight(true))+40,
-//     }
-// });
 
 $(function () {
     $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
-    // $(".side-bar").height($(window).height() - 150);
-    $(".navbar").smartFloat(0,"navbar-fixed-top");
+    $(".navbar").smartFloat(0, "navbar-fixed-top");
+
+    var cssleft=$(".side-bar").offset().left;
+    $(".side-bar").css("left",cssleft);
+
+    $(".side-bar").affix({
+        offset: {
+            top: $(".side-bar").offset().top - 65,
+            bottom: ($("footer").outerHeight(true)) + 40,
+        }
+    });
+
+    console.log($(".side-bar").offset().left);
 });
 
 
-var mainpage=new Vue({
-    el:"#mainpage",
-    methods:{
-        onClick:function(){
-            var loaded=false;
-            if(!loaded){
+var mainpage = new Vue({
+    el: "#mainpage",
+    methods: {
+        onClick: function () {
+            var loaded = false;
+            if (!loaded) {
                 $("#show").load('./mainpage.html');
-                loaded=true;
+                loaded = true;
             }
         }
     }
 });
 
-var shwoblog=new Vue({
-    el:"#showblog",
-    methods:{
-        onClick:function(){
-            var loaded=false;
-            if(!loaded){
+var shwoblog = new Vue({
+    el: "#showblog",
+    methods: {
+        onClick: function () {
+            var loaded = false;
+            if (!loaded) {
                 $("#show").load('./test.html');
-                loaded=true;
+                loaded = true;
             }
         }
     }
 });
 
-var shwopractices=new Vue({
-    el:"#showpractices",
-    methods:{
-        onClick:function(){
-            var loaded=false;
-            if(!loaded){
+var shwopractices = new Vue({
+    el: "#showpractices",
+    methods: {
+        onClick: function () {
+            var loaded = false;
+            if (!loaded) {
                 $("#show").load('./practices/index.html');
-                loaded=true;
+                loaded = true;
             }
         }
     }

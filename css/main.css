@@ -56,6 +56,11 @@ a:focus {
     z-index: 3;
 }
 
+.navbar .container {
+    width: 100%;
+    padding: 0;
+}
+
 .nav-item {
     color: #999;
     font-weight: bold;
@@ -100,6 +105,6 @@ a:focus {
 
 .side-bar.affix {
     top: 75px;
-    left: 927px;
+    /* left: 927px; */
     width: 253px;
 }
