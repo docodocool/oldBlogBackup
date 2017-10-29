@@ -21,13 +21,13 @@
   </header>
   <nav class="navbar shadowbox">
     <div class="container">
-      <a id="mainpage" class="nav-item" type="button" @click="onClick">首页 </a>
-      <a id="showblog" class="nav-item" type="button" @click="onClick">&nbsp;blog </a>
-      <a id="showpractices" class="nav-item" type="button" @click="onClick">&nbsp;小练习</a>
+      <a class="nav-item" id="mainpage" type="button" @click="onClick">首页 </a>
+      <a class="nav-item" id="showblog" type="button" @click="onClick">&nbsp;blog </a>
+      <a class="nav-item" id="showpractices" type="button" @click="onClick">&nbsp;小练习</a>
     </div>
   </nav>
   <div class="mainpanel">
-    <div class="contain">
+    <div class="contain id="anchor"">
       <div class="main-column shadowbox">
         <div id="content">
           <!-- <button id="showblog" @click="onClick">show</button> -->
@@ -42,9 +42,9 @@
       <div class="side-bar affix-top shadowbox" data-spy="affix">
         <div class="avatar"></div>
         <div class="contact list-group">
-          <a href="#" class="list-group-item">Git</a>
-          <a href="#" class="list-group-item">Mail-to</a>
-          <a href="#" class="list-group-item">QQ</a>
+          <a class="list-group-item" href="#">Git</a>
+          <a class="list-group-item" href="#">Mail-to</a>
+          <a class="list-group-item" href="#">QQ</a>
         </div>
       </div>
     </div>

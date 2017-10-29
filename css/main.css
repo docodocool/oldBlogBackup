@@ -74,8 +74,8 @@ a:focus {
 }
 
 .mainpanel {
-    background-color: #f3f3f3;
     position: relative;
+    background-color: #f3f3f3;
     padding-top: 10px;
     padding-bottom: 10px;
 }
