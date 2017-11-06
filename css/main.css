@@ -111,6 +111,11 @@ a:focus {
     /* width: 253px; */
 }
 
+.contact img{
+    height: 20px;
+    width: 20px;
+}
+
 footer {
     background-color: #fff;
     height: 50px;
