@@ -13,4 +13,5 @@ A:可能是因为网速慢
 修改了side-bar的定位方式
 ## 11-6
 修改了side-bar的宽度,  
-修改了side-bar上avatar内容
+修改了side-bar上avatar内容,  
+修改了bgimg的显示方式
