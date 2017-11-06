@@ -11,3 +11,6 @@ Q:为什么第一次ajax那么慢
 node_modules文件夹太大了,放到服务器上的时候要考虑用bootcdn了
 ## 10-29
 修改了side-bar的定位方式
+## 11-6
+修改了side-bar的宽度,  
+修改了side-bar上avatar内容

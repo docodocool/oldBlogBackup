@@ -22,7 +22,6 @@ $(function () {
     $(".headerbox").height($(window).height() - 65);
     $(".navbar").smartFloat(0, "navbar-fixed-top");
 
-    $(".side-bar").css("left",$(".side-bar").offset().left);
 
     $(".side-bar").affix({
         offset: {
@@ -30,6 +29,11 @@ $(function () {
             bottom: ($("footer").outerHeight(true)) + 40,
         }
     });
+
+    $(window).resize(function(){
+        $(".side-bar").width($(".outline").width());
+    });
+    $(window).resize();
 
     console.log($(".side-bar").offset().left);
 });

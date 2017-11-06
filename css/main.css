@@ -35,7 +35,7 @@ a:focus {
     width: 150px;
     height: 150px;
     border: 10px solid white;
-    background-image: url(../img/avatar.png);
+    background-image: url(../img/Miku.gif);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center center;
@@ -81,6 +81,7 @@ a:focus {
 }
 
 .contain {
+    min-width: 800px;
     width: 75%;
     height: 1500px;
     margin: 0 auto;
@@ -98,7 +99,7 @@ a:focus {
     float: left;
 }
 
-.side-bar {
+.outline {
     width: 25%;
     height: 450px;
     float: right;
@@ -107,10 +108,10 @@ a:focus {
 .side-bar.affix {
     top: 75px;
     /* left: 927px; */
-    width: 253px;
+    /* width: 253px; */
 }
 
-footer{
+footer {
     background-color: #fff;
     height: 50px;
 }
