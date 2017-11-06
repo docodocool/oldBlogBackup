@@ -32,8 +32,8 @@ a:focus {
 }
 
 .avatar {
-    width: 150px;
-    height: 150px;
+    width: 230px;
+    height: 230px;
     border: 10px solid white;
     background-image: url(../img/Miku.gif);
     background-size: 100%;
