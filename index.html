@@ -14,23 +14,19 @@
   <header>
     <div class="headerbox">
       <div id="bgimg" style="z-index:-1"></div>
-      <!-- <div class="branding">
-        <div id="avatar" class="shadowbox"></div>
-      </div> -->
     </div>
   </header>
-  <nav class="navbar shadowbox">
+  <nav class="navbar shadowbox" id="anchor">
     <div class="container">
-      <a class="nav-item" id="mainpage" type="button" @click="onClick">首页 </a>
-      <a class="nav-item" id="showblog" type="button" @click="onClick">&nbsp;blog </a>
-      <a class="nav-item" id="showpractices" type="button" @click="onClick">&nbsp;小练习</a>
+      <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
+      <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
+      <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
     </div>
   </nav>
   <div class="mainpanel">
-    <div class="contain id=" anchor "">
+    <div class="contain">
       <div class="main-column shadowbox">
         <div id="content">
-          <!-- <button id="showblog" @click="onClick">show</button> -->
           <div id="show">
             <h1>Hello World!</h1>
             <h1>Hello World!</h1>

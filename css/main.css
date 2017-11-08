@@ -87,7 +87,9 @@ a:focus {
     min-width: 800px;
     width: 75%;
     height: 1500px;
-    margin: 0 auto;
+    /* margin-top: 10px; */
+    margin-left: auto;
+    margin-right: auto;
     /* position: absolute; */
 }
 

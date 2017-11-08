@@ -23,21 +23,22 @@ $(function () {
     $(".navbar").smartFloat(0, "navbar-fixed-top");
 
 
+
+    $(window).resize(function () {
+        $(".side-bar").width($(".outline").width());
+        $(".avatar").width($(".outline").width() - 20);
+        $(".avatar").height($(".outline").width() - 20);
+    });
+    $(window).resize();
+
     $(".side-bar").affix({
         offset: {
-            top: $(".side-bar").offset().top - 65,
+            top: $(".side-bar").offset().top - 75,
             bottom: ($("footer").outerHeight(true)) + 40,
         }
     });
 
-    $(window).resize(function(){
-        $(".side-bar").width($(".outline").width());
-        $(".avatar").width($(".outline").width()-20);
-        $(".avatar").height($(".outline").width()-20);
-    });
-    $(window).resize();
-
-    console.log($(".side-bar").offset().left);
+    console.log($(".side-bar").offset().top);
 });
 
 //--------------------Vue--------------------------------
