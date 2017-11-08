@@ -33,8 +33,9 @@ a:focus {
 }
 
 .avatar {
-    width: 230px;
-    height: 230px;
+    display: block;
+    /* width: 230px;
+    height: 230px; */
     border: 10px solid white;
     background-image: url(../img/Miku.gif);
     background-size: 100%;
@@ -64,6 +65,7 @@ a:focus {
 
 .nav-item {
     color: #999;
+    font-family: 微软雅黑;
     font-weight: bold;
     font-size: 30px;
     cursor: pointer;
@@ -112,9 +114,18 @@ a:focus {
     /* width: 253px; */
 }
 
-.contact img{
+.contact img {
     height: 20px;
     width: 20px;
+}
+
+.side-bar {
+    font-family: 微软雅黑;
+    font-weight: bold;
+}
+
+.side-bar img {
+    vertical-align: text-bottom;
 }
 
 footer {

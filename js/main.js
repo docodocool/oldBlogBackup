@@ -32,6 +32,8 @@ $(function () {
 
     $(window).resize(function(){
         $(".side-bar").width($(".outline").width());
+        $(".avatar").width($(".outline").width()-20);
+        $(".avatar").height($(".outline").width()-20);
     });
     $(window).resize();
 
