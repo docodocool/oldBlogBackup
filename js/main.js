@@ -63,7 +63,7 @@ var shwoblog = new Vue({
         onClick: function () {
             var loaded = false;
             if (!loaded) {
-                $("#show").load('./test.html');
+                $("#show").load('./blog.html');
                 loaded = true;
             }
         }
@@ -76,7 +76,7 @@ var shwopractices = new Vue({
         onClick: function () {
             var loaded = false;
             if (!loaded) {
-                $("#show").load('./practices/index.html');
+                $("#show").load('./practices.html');
                 loaded = true;
             }
         }

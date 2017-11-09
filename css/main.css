@@ -46,6 +46,13 @@ a:focus {
     left: 200px; */
 }
 
+.navshadow{
+    display: block;
+    height: 65px;
+    width: 100%;
+    margin-bottom: 0;
+}
+
 .navbar {
     background-color: #fff;
     height: 65px;
@@ -74,6 +81,10 @@ a:focus {
 .nav-item:nth-child(2) {
     border-left: 2px solid #999;
     border-right: 2px solid #999;
+}
+
+.nav-item.active {
+    color: #23527c;
 }
 
 .mainpanel {
@@ -131,6 +142,9 @@ a:focus {
 }
 
 footer {
+    padding: 10px;
     background-color: #fff;
     height: 50px;
+    font-family: 微软雅黑;
+    text-align: center;
 }

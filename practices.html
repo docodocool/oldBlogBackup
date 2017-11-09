@@ -1,0 +1,45 @@
+    <div class="nav"><div class="list-group">
+      <div>
+        <button class="list-group-item" id="basics">BASICS</button>
+        <div class="sublist" style="display:none;">
+          <a href="practices/Basics/Baymax.html" class="list-group-item subitem">Baymax</a>
+          <a href="practices/Basics/canvas.html" class="list-group-item subitem">Canvas</a>
+          <a href="practices/Basics/cookie.html" class="list-group-item subitem">Cookies</a>
+          <a href="practices/Basics/html layout.html" class="list-group-item subitem">html布局</a>
+          <a href="practices/Basics/JavaScript.html" class="list-group-item subitem">JavaScript</a>
+          <a href="practices/Basics/jQuery.html" class="list-group-item subitem">JQuery</a>
+          <a href="practices/Basics/Sublime.html" class="list-group-item subitem">Sublime</a>
+          <a href="practices/Basics/Valentine rose.html" class="list-group-item subitem">Valentine Rose</a>
+        </div>
+      </div>
+      <div>
+        <button class="list-group-item">14.x-bootstrap</button>
+        <div class="sublist" style="display:none;">
+          <a href="practices/14.x bootstrap/index.html" class="list-group-item subitem">index</a>
+          <a href="practices/14.x bootstrap/nav.html" class="list-group-item subitem">nav</a>
+          <a href="practices/14.x bootstrap/table.html" class="list-group-item subitem">table</a>
+        </div>
+      </div>
+      <a href="practices/mogujie/index.html" class="list-group-item">蘑菇街</a>
+      <a href="practices/myzhihu/zhihu.html" class="list-group-item">知乎</a>
+      <a href="practices/newswebsite/index.html" class="list-group-item">新闻页</a>
+      <a href="practices/simpleblog/index.html" class="list-group-item">简单博客</a>
+      <a href="practices/Ajax/index.html" class="list-group-item">Ajax</a>
+      <a href="practices/jQuery-Form-Validation/index.html" class="list-group-item">JQuery实战:表单验证</a>
+      <a href="practices/xiuzhentasks/changecolor/index.html" class="list-group-item">变色九宫格</a>
+      <a href="practices/vue/index.html" class="list-group-item">Vue</a>
+      <a href="practices/vue-router/index.html" class="list-group-item">Vue-router</a>
+    </div>
+  </div>
+</div>
+<script>
+$('.list-group-item').on('click',function(){
+  // $(this).next('.sublist').toggle();
+  if($(this).next('.sublist').is(':visible')){
+    $(this).next('.sublist').slideUp();
+  }
+  else {
+    $(this).next('.sublist').slideDown();
+  }
+})
+</script>
