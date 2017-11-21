@@ -20,8 +20,8 @@ $.fn.smartFloat = function (dis, cla) {
 $(function () {
     $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
+    // $(".contain").height($(window).height()-65-50);
     $(".navbar").smartFloat(0, "navbar-fixed-top");
-
 
 
     $(window).resize(function () {

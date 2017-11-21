@@ -17,16 +17,19 @@
       <div id="bgimg" style="z-index:-1"></div>
     </div>
   </header>
-  <nav class="navbar shadowbox" id="anchor">
-    <div class="container">
-      <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
-      <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
-      <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
-    </div>
-  </nav>
+  <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
+  <div class="fix-height">
+    <nav class="navbar shadowbox" id="anchor">
+      <div class="container">
+        <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
+        <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
+        <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
+      </div>
+    </nav>
+  </div>
   <div class="mainpanel">
     <div class="contain">
-      <div class="main-column shadowbox">
+      <div class="main-column">
         <div id="content">
           <div id="show">
             <h1>Hello World!</h1>
@@ -43,15 +46,17 @@
             <a class="list-group-item" href="https://github.com/coolucifer" target="_blank">
               <img src="./img/github-logo-b.png" /> GitHub
             </a>
-            <a class="list-group-item" href="#"><img src="./img/email.png" /> Mail-to</a>
-            <a class="list-group-item" href="#"><img src="./img/qq-penguin-shape.png" /> QQ</a>
+            <a class="list-group-item" href="#">
+              <img src="./img/email.png" /> Mail-to</a>
+            <a class="list-group-item" href="#">
+              <img src="./img/qq-penguin-shape.png" /> QQ</a>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer class="shadowbox">footerfooterfooter</footer>
+  <!-- <footer class="shadowbox">footerfooterfooter</footer> -->
 
   <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>

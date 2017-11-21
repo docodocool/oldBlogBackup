@@ -1,3 +1,7 @@
+* {
+    font-family: 微软雅黑;
+}
+
 body {
     background: #ccc;
 }
@@ -46,7 +50,11 @@ a:focus {
     left: 200px; */
 }
 
-.navshadow{
+.fix-height{
+    height:65px;
+}
+
+.navshadow {
     display: block;
     height: 65px;
     width: 100%;
@@ -57,7 +65,7 @@ a:focus {
     background-color: #fff;
     height: 65px;
     width: 100%;
-    padding: 12.5px 200px;
+    padding: 12.5px 0;
     margin-bottom: 0;
     border: none;
     /* position: absolute; */
@@ -66,7 +74,8 @@ a:focus {
 }
 
 .navbar .container {
-    width: 100%;
+    margin: 0 auto;
+    width: 70%;
     padding: 0;
 }
 
@@ -97,21 +106,19 @@ a:focus {
 .contain {
     min-width: 800px;
     width: 75%;
-    height: 1500px;
+    min-height: 537px;
     /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
     /* position: absolute; */
 }
 
-.main-column,
 .side-bar {
     padding: 15px;
 }
 
 .main-column {
     width: 72%;
-    height: 1500px;
     float: left;
 }
 
@@ -147,4 +154,17 @@ footer {
     height: 50px;
     font-family: 微软雅黑;
     text-align: center;
+}
+
+
+/* ----------------blog-list------------------- */
+
+.post-list-item {
+    padding: 20px;
+}
+
+.post-list-item time {
+    font-size: 15px;
+    font-weight: bold;
+    flood-color: #999;
 }
