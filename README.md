@@ -21,3 +21,5 @@ A:可能是因为网速慢
 ## 11-9
 添加了两个页面,作为blog和小练习部分的框架.  
 如何把框架套到页面中去?
+## 11-21
+改名为coolucifer.github.io,这样可以在coolucifer.github.io直接访问而不用再/blog.
