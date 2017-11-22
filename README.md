@@ -24,3 +24,5 @@ A:可能是因为网速慢
 ## 11-21
 改名为coolucifer.github.io,这样可以在coolucifer.github.io直接访问而不用再/blog.  
 调整了部分样式
+## 11-22
+添加了第一篇'博客'
