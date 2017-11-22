@@ -184,3 +184,14 @@ iframe{
     height: 500px;
     border:none;
 }
+
+/* -------------------------blogframe.html------------------ */
+
+#blog{
+    padding: 20px;
+}
+
+.blog-content{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
