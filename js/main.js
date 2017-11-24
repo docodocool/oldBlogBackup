@@ -43,6 +43,7 @@ $(function () {
 
 //--------------------Vue--------------------------------
 
+/*
 //主页导航栏三个按钮[首页|blog|小练习]
 var mainpage = new Vue({
     el: "#mainpage",
@@ -81,4 +82,68 @@ var shwopractices = new Vue({
             }
         }
     }
+});
+*/
+
+// -----------------Vue-router-----------------
+var routes = [{
+        path: '/',
+        component: {
+            template: `
+        <div>
+            <h1>Hello World!</h1>
+            <h1>Hello World!</h1>
+            <h1>Hello World!</h1>
+        </div>
+        `
+        },
+    },
+    {
+        path: '/blog',
+        component: {
+            template: `
+        <div>
+        <ul class="post-list list-unstyled">
+        <li class="post-list-item shadowbox">
+          <article id="第一篇blog" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-11-21" datetime="2017-11-21">2017-11-21</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-11-21.html" class="post-title-link">第一篇blog</a>
+            </h3>
+          </article>
+        </li>
+      </ul>
+      </div>
+        `
+        },
+
+    },
+    {
+        path: '/practices',
+        component: {
+            template: `
+        <div class="nav">
+        <div class="list-group">
+          <a href="https://coolucifer.github.io/mogujie/index.html" class="list-group-item">蘑菇街</a>
+          <a href="https://coolucifer.github.io/newswebsite/index.html" class="list-group-item">新闻页</a>
+          <a href="https://coolucifer.github.io/simpleblog/index.html" class="list-group-item">简单博客</a>
+          <a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html" class="list-group-item">JQuery实战:表单验证</a>
+          <a href="https://coolucifer.github.io/xiuzhentasks/变色九宫格/index.html" class="list-group-item">变色九宫格</a>
+          <a href="https://coolucifer.github.io/vue-list/index.html" class="list-group-item">Vue-list</a>
+        </div>
+      </div>
+        `
+        },
+    },
+];
+
+var router = new VueRouter({
+    routes: routes,
+});
+
+new Vue({
+    el: '#app',
+    router: router,
 });

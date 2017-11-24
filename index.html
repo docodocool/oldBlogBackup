@@ -17,39 +17,49 @@
       <div id="bgimg" style="z-index:-1"></div>
     </div>
   </header>
-  <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
-  <div class="fix-height">
-    <nav class="navbar shadowbox fix-nav" id="anchor">
-      <div class="container">
-        <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
-        <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
-        <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
-      </div>
-    </nav>
-  </div>
-  <div class="mainpanel">
-    <div class="contain">
-      <div class="main-column">
-        <div id="content">
-          <div id="show">
-            <h1>Hello world!</h1>
-            <h1>Hello world!</h1>
-            <h1>Hello world!</h1>
-          </div>
 
+  <!-- #app作为vue-router -->
+  <div id="app">
+    <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
+    <div class="fix-height">
+      <nav class="navbar shadowbox fix-nav" id="anchor">
+        <!-- <div class="container">
+          <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
+          <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
+          <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
+        </div> -->
+        <div class="container">
+          <router-link class="nav-item" to="/">首页</router-link>
+          <router-link class="nav-item" to="/blog">&nbsp;blog </router-link>
+          <router-link class="nav-item" to="/practices">&nbsp;小练习</router-link>
         </div>
-      </div>
-      <div class="outline">
-        <div class="side-bar affix-top shadowbox" data-spy="affix">
-          <div class="avatar"></div>
-          <div class="contact list-group">
-            <a class="list-group-item" href="https://github.com/coolucifer" target="_blank">
-              <img src="./img/github-logo-b.png" /> GitHub
-            </a>
-            <a class="list-group-item" href="#">
-              <img src="./img/email.png" /> Mail-to</a>
-            <a class="list-group-item" href="#">
-              <img src="./img/qq-penguin-shape.png" /> QQ</a>
+      </nav>
+    </div>
+    <div class="mainpanel">
+      <div class="contain">
+        <div class="main-column">
+          <div id="content">
+            <!-- <div id="show">
+              <h1>Hello world!</h1>
+              <h1>Hello world!</h1>
+              <h1>Hello world!</h1>
+            </div> -->
+            <router-view></router-view>
+
+          </div>
+        </div>
+        <div class="outline">
+          <div class="side-bar affix-top shadowbox" data-spy="affix">
+            <div class="avatar"></div>
+            <div class="contact list-group">
+              <a class="list-group-item" href="https://github.com/coolucifer" target="_blank">
+                <img src="./img/github-logo-b.png" /> GitHub
+              </a>
+              <a class="list-group-item" href="#">
+                <img src="./img/email.png" /> Mail-to</a>
+              <a class="list-group-item" href="#">
+                <img src="./img/qq-penguin-shape.png" /> QQ</a>
+            </div>
           </div>
         </div>
       </div>
@@ -64,6 +74,7 @@
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
   <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
   <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
