@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MyBlog</title>
+  <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body data-spy="scroll" data-target=".side-bar">
+  <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
+  <div class="fix-height">
+    <nav class="navbar navbar-fixed-top shadowbox" id="anchor">
+      <div class="container">
+        <!-- <a class="nav-item" id="mainpage" type="button" @click="onClick" href="https://coolucifer.github.io/">首页 </a>
+        <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
+        <a class="nav-item" id="showpractices" type="button" @click="onClick" href="https://coolucifer.github.io/">&nbsp;小练习</a> -->
+        <a class="nav-item" id="mainpage" href="https://coolucifer.github.io">首页 </a>
+        <a class="nav-item" id="showblog" href="#anchor">&nbsp;blog </a>
+        <a class="nav-item" id="showpractices" href="https://coolucifer.github.io/#/practices">&nbsp;小练习</a>
+      </div>
+    </nav>
+  </div>
+  <div class="mainpanel">
+    <div class="contain clearfix">
+      <div class="main-column shadowbox">
+        <div id="blog">
+          <ul class="pager">
+            <li class="previous">
+              <a href="https://coolucifer.github.io/2017-11-21.html">
+                <span aria-hidden="true">&larr;</span> 上一篇</a>
+            </li>
+            <li class="next disabled">
+              <a href="#">下一篇
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          </ul>
+          <h1>jQuery实战: 表单验证(上)</h1>
+          <time datetime="2017-11-26">2017-11-26</time>
+          <div class="blog-content">
+            <p>大家好, 这里是我的第二篇博客! 今天来讲一下怎么用jQuery做一个表单验证, 这里是<a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html">成品地址</a>.</p>
+            <p>表单验证的大致思路就是在input里添加一个按照一定语法写的自定义属性<span class="code-green">data-rule</span>, 在输入框blur的时候通过不同的data-rule来验证其中的内容符不符合要求, 如果不符合则弹出错误信息.</p>
+            <p>首先当然就是如何将<span class="code-green">data-rule</span>解析成一个个规则, 这里是将它由字符串变成一个对象<span class="code-green">rule{}</span>.</p>
+            <pre>
+function parse_rule() {
+  // .data方法专门用于用于获取'data-'开头的属性字符串
+  // 'min:18|maxlength:10'
+  var rule_string = $ele.data('rule');  //相当于获取'data-rule'"
+  if (!rule_string) return;  //没有rule
+
+  // .split()方法 分割
+  var rule_arr = rule_string.split('|');  //返回一个数组
+  // rule_arr['min:18','maxlength:10']
+  for (var i = 0; i < rule_arr.length; i++) {
+    var item_str = rule_arr[i];
+    var item_arr = item_str.split(':');
+    // item_arr['min','18']
+    rule[item_arr[0]] = JSON.parse(item_arr[1]);  //通过JSON.parse()来确定返回值的类型
+    // rule['min'] = '18'
+    // rule{min:18}
+  }
+}
+            </pre>
+            <P>这样<span class="code-green">data-rule</span>就变成了一个<span class="code-green">rule{}</span>对象, 可以在验证函数中调用rule.xxx来验证是否符合要求了.</P>
+            <p style="text-align:right">2017-11-26</p>
+          </div>
+        </div>
+      </div>
+      <div class="outline">
+        <div class="side-bar affix-top shadowbox" data-spy="affix">
+          <div class="avatar"></div>
+          <div class="contact list-group">
+            <a class="list-group-item" href="https://github.com/coolucifer" target="_blank">
+              <img src="./img/github-logo-b.png" /> GitHub
+            </a>
+            <a class="list-group-item" href="#">
+              <img src="./img/email.png" /> Mail-to</a>
+            <a class="list-group-item" href="#">
+              <img src="./img/qq-penguin-shape.png" /> QQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer class="shadowbox">footerfooterfooter</footer> -->
+
+  <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
+  <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
