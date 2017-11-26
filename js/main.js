@@ -16,11 +16,18 @@ $.fn.smartFloat = function (dis, cla) {
     });
 };
 
+var if_less=function(){
+    if($(window).height-85<537){
+        return 537;
+    }else{
+        return $(window).height-85;
+    }
+}
 
 $(function () {
     $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
-    $(".contain").css("min-height",($(window).height()-85));
+    $(".contain").css("min-height",if_less);
     $(".fix-nav").smartFloat(0, "navbar-fixed-top");
 
 
