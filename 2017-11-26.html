@@ -50,7 +50,7 @@
             <pre>
 function parse_rule() {
   // .data方法专门用于用于获取'data-'开头的属性字符串
-  // 'min:18|maxlength:10'
+  // data-rule="min:18|maxlength:10"
   var rule_string = $ele.data('rule');  //相当于获取'data-rule'"
   if (!rule_string) return;  //没有rule
 
@@ -66,8 +66,8 @@ function parse_rule() {
     // rule{min:18}
   }
 }
-            </pre>
-            <P>这样<span class="code-green">data-rule</span>就变成了一个<span class="code-green">rule{}</span>对象, 可以在验证函数中调用rule.xxx来验证是否符合要求了.</P>
+</pre>
+            <P>这样<span class="code-green">data-rule="min:18|maxlength:10"</span>就变成了一个<span class="code-green">rule{min:18,maxlength:10}</span>对象, 可以在验证函数validator()中调用rule.xxx来验证是否符合要求了.</P>
             <p style="text-align:right">2017-11-26</p>
           </div>
         </div>
