@@ -132,6 +132,17 @@ var routes = [{
           </article>
         </li>
       </ul>
+        <li class="post-list-item shadowbox">
+          <article id="jQuery实战: 表单验证(下)" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-11-29" datetime="2017-11-29">2017-11-29</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-11-29.html" class="post-title-link">jQuery实战: 表单验证(下)</a>
+            </h3>
+          </article>
+        </li>
+      </ul>
       </div>
         `
         },
