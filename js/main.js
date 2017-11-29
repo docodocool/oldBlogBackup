@@ -131,7 +131,6 @@ var routes = [{
             </h3>
           </article>
         </li>
-      </ul>
         <li class="post-list-item shadowbox">
           <article id="jQuery实战: 表单验证(下)" class="article-card">
             <div class="post-meta">
