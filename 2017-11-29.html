@@ -32,43 +32,94 @@
         <div id="blog">
           <ul class="pager">
             <li class="previous">
-              <a href="https://coolucifer.github.io/2017-11-21.html">
+              <a href="https://coolucifer.github.io/2017-11-26.html">
                 <span aria-hidden="true">&larr;</span> 上一篇</a>
             </li>
-            <li class="next">
-              <a href="https://coolucifer.github.io/2017-11-29.html">下一篇
+            <li class="next disabled">
+              <a href="#">下一篇
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </li>
           </ul>
-          <h1>jQuery实战: 表单验证(上)</h1>
-          <time datetime="2017-11-26">2017-11-26</time>
+          <h1>jQuery实战: 表单验证(下)</h1>
+          <time datetime="2017-11-29">2017-11-29</time>
           <div class="blog-content">
-            <p>大家好, 这里是我的第二篇博客! 今天来讲一下怎么用jQuery做一个表单验证, 这里是<a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html">成品地址</a>.</p>
-            <p>表单验证的大致思路就是在input里添加一个按照一定语法写的自定义属性<span class="code-green">data-rule</span>, 在输入框blur的时候通过不同的data-rule来验证其中的内容符不符合要求, 如果不符合则弹出错误信息.</p>
-            <p>首先当然就是如何将<span class="code-green">data-rule</span>解析成一个个规则, 这里是将它由字符串变成一个对象<span class="code-green">rule{}</span>.</p>
+            <p>上次我们讲到了如何为表单验证制定规则以及对规则的处理, 之后就到了规则的验证阶段.</p>
+            <p>表单验证的第二步就是规则验证, 这里会使用构造器来创建一个构造函数window.Validator(), 这样就可以使每一个input在blur的时候执行this.validator.is_valid()来验证内容了</p>
             <pre>
-function parse_rule() {
-  // .data方法专门用于用于获取'data-'开头的属性字符串
-  // data-rule="min:18|maxlength:10"
-  var rule_string = $ele.data('rule');  //相当于获取'data-rule'"
-  if (!rule_string) return;  //没有rule
-
-  // .split()方法 分割
-  var rule_arr = rule_string.split('|');  //返回一个数组
-  // rule_arr['min:18','maxlength:10']
-  for (var i = 0; i < rule_arr.length; i++) {
-    var item_str = rule_arr[i];
-    var item_arr = item_str.split(':');
-    // item_arr['min','18']
-    rule[item_arr[0]] = JSON.parse(item_arr[1]);  //通过JSON.parse()来确定返回值的类型
-    // rule['min'] = '18'
-    // rule{min:18}
-  }
+//传入input中的内容以及data-rule
+window.Validator = function (val, rule) {
+...  //验证
 }
 </pre>
-            <P>这样<span class="code-green">data-rule="min:18|maxlength:10"</span>就变成了一个<span class="code-green">rule{min:18,maxlength:10}</span>对象, 可以在验证函数validator()中调用rule.xxx来验证是否符合要求了.</P>
-            <p style="text-align:right">2017-11-26</p>
+            <p>对于每个单独的规则, 可以在validator中创建对应的验证函数. 比如data-rule="max:10", 可以创建对应的validate_max().</p>
+            <pre>
+this.validate_max = function () {
+  val = parseFloat(val);  //将传进来的val转换成数字类型
+  return val <= rule.max;  //符合则返回true, 否则返回false
+}
+</pre>
+            <p>当data-rule是正则表达式(data-rule="pattern:^[a-z0-9]*$")时,对应的验证函数为:</p>
+            <pre>
+this.validate_pattern = function () {
+  var reg = new RegExp(rule.pattern);
+  return reg.test(val);
+}
+</pre>
+            <p>有一个总的验证函数is_valid()来确定内容是否符合要求</p>
+            <pre>
+this.is_valid = function (new_val) {  //这里的new_val是用户输入的val
+  if (new_val !== undefined) {
+    val = new_val;
+  }
+ // if(new_val)
+  // val = new_val;            
+  var key; //key是rule{}里的'max'或'min'等            
+  // 先验证是否为必填项,若不是必填项且用户未填写内容则直接判定为合法
+  if (!rule.required && !val) {
+    return true;
+  }            
+  for (key in rule) {  //对rule{}中的每一项进行检测
+    // 防止重复检测
+    if (key === 'required')
+      continue;
+    // 调用rule中相对应的方法
+    var r = this['validate_' + key](); //this.validate_max()
+    if (!r) return false;  //若验证不通过直接返回
+  }
+  return true;
+}
+</pre>
+            <p>这样表单验证的验证函数部分就完成了, 下一步就是将每个input和validator绑定起来, 这里设立一个监听函数listen(), 当每一个input失去焦点(blur)的时候执行</p>
+            <pre>
+function listen() {
+  $ele.on('blur', function () {
+    var valid = me.validator.is_valid(me.get_val());  //获取输入框内的值
+    if (valid)
+      $error_ele.hide();  //错误提示
+    else
+      $error_ele.show();
+  })
+}
+</pre>
+            <p>最后在整个表单提交的时候进行一个总的验证</p>
+            <pre>
+//在表单提交的时候进行验证
+$form.on('submit', function(event){
+  event.preventDefault();  //防止刷新
+  $inputs.trigger('blur');
+  for(var i = 0; i < inputs.length; i ++){
+    var item = inputs[i];
+    var r = item.validator.is_valid();
+    if(!r){
+      alert('invalid');
+      return;
+    }
+  }
+  alert('valid!');
+})
+</pre>
+            <p>这样,表单验证就完成了</p>
           </div>
         </div>
       </div>
