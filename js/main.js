@@ -141,6 +141,16 @@ var routes = [{
             </h3>
           </article>
         </li>
+        <li class="post-list-item shadowbox">
+          <article id="Vue.js实战: 清单应用" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-12-06" datetime="2017-12-06">2017-12-06</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-12-06.html" class="post-title-link">Vue.js实战: 清单应用</a>
+            </h3>
+          </article>
+        </li>
       </ul>
       </div>
         `
