@@ -35,8 +35,8 @@
               <a href="https://coolucifer.github.io/2017-11-26.html">
                 <span aria-hidden="true">&larr;</span> 上一篇</a>
             </li>
-            <li class="next disabled">
-              <a href="#">下一篇
+            <li class="next">
+              <a href="https://coolucifer.github.io/2017-12-06.html">下一篇
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </li>
@@ -45,28 +45,28 @@
           <time datetime="2017-11-29">2017-11-29</time>
           <div class="blog-content">
             <p>上次我们讲到了如何为表单验证制定规则以及对规则的处理, 之后就到了规则的验证阶段.</p>
-            <p>表单验证的第二步就是规则验证, 这里会使用构造器来创建一个构造函数window.Validator(), 这样就可以使每一个input在blur的时候执行this.validator.is_valid()来验证内容了</p>
+            <p>表单验证的第二步就是规则验证, 这里会使用构造器来创建一个构造函数<code>window.Validator()</code>, 这样就可以使每一个input在blur的时候执行<code>this.validator.is_valid()</code>来验证内容了.</p>
             <pre>
 //传入input中的内容以及data-rule
 window.Validator = function (val, rule) {
 ...  //验证
 }
 </pre>
-            <p>对于每个单独的规则, 可以在validator中创建对应的验证函数. 比如data-rule="max:10", 可以创建对应的validate_max().</p>
+            <p>对于每个单独的规则, 可以在validator中创建对应的验证函数. 比如<code>data-rule="max:10"</code>, 可以创建对应的<code>validate_max()</code>:</p>
             <pre>
 this.validate_max = function () {
   val = parseFloat(val);  //将传进来的val转换成数字类型
   return val <= rule.max;  //符合则返回true, 否则返回false
 }
 </pre>
-            <p>当data-rule是正则表达式(data-rule="pattern:^[a-z0-9]*$")时,对应的验证函数为:</p>
+            <p>当data-rule是正则表达式(<code>data-rule="pattern:^[a-z0-9]*$"</code>)时,对应的验证函数为:</p>
             <pre>
 this.validate_pattern = function () {
   var reg = new RegExp(rule.pattern);
   return reg.test(val);
 }
 </pre>
-            <p>有一个总的验证函数is_valid()来确定内容是否符合要求</p>
+            <p>有一个总的验证函数<code>is_valid()</code>来确定内容是否符合要求:</p>
             <pre>
 this.is_valid = function (new_val) {  //这里的new_val是用户输入的val
   if (new_val !== undefined) {
@@ -90,7 +90,7 @@ this.is_valid = function (new_val) {  //这里的new_val是用户输入的val
   return true;
 }
 </pre>
-            <p>这样表单验证的验证函数部分就完成了, 下一步就是将每个input和validator绑定起来, 这里设立一个监听函数listen(), 当每一个input失去焦点(blur)的时候执行</p>
+            <p>这样表单验证的验证函数部分就完成了, 下一步就是将每个input和validator绑定起来, 这里设立一个监听函数<code>listen()</code>, 当每一个input失去焦点(blur)的时候执行:</p>
             <pre>
 function listen() {
   $ele.on('blur', function () {
@@ -102,7 +102,7 @@ function listen() {
   })
 }
 </pre>
-            <p>最后在整个表单提交的时候进行一个总的验证</p>
+            <p>最后在整个表单提交的时候进行一个总的验证:</p>
             <pre>
 //在表单提交的时候进行验证
 $form.on('submit', function(event){
@@ -119,7 +119,7 @@ $form.on('submit', function(event){
   alert('valid!');
 })
 </pre>
-            <p>这样,表单验证就完成了</p>
+            <p>这样,表单验证就完成了.</p>
           </div>
         </div>
       </div>
