@@ -75,7 +75,7 @@ a:focus {
 
 .navbar .container {
     margin: 0 auto;
-    width: 70%;
+    width: 75%;
     padding: 0;
 }
 
@@ -105,7 +105,7 @@ a:focus {
 
 .contain {
     min-width: 800px;
-    width: 75%;
+    width: 80%;
     min-height: 537px;
     /* margin-top: 10px; */
     margin-left: auto;
