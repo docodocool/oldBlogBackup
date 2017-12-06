@@ -121,7 +121,7 @@ remove: function (id) {
 },
 </pre>
           <h3>三. 与localStorage对接</h3>
-          <p>在挂载时(<code>mounted:</code>)我们要使用get()方法取出localStorage中的数据,并且在list[]有变动时, 我们都要使用set()方法将它保存到localStorage里, 我们可以通过Vue的侦听器(<code>watch:</code>)来监测list[]是否有变化.</p>
+          <p>在挂载时(<code>mounted:</code>)我们要使用get()方法取出localStorage中的数据, 并且在list[]有变动时, 我们都要使用set()方法将它保存到localStorage里, 我们可以通过Vue的侦听器(<code>watch:</code>)来监测list[]是否有变化.</p>
 <pre>
 mounted: function () {
   this.list = ms.get('list') || this.list;
