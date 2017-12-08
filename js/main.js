@@ -16,18 +16,18 @@ $.fn.smartFloat = function (dis, cla) {
     });
 };
 
-var if_less=function(){
-    if($(window).height-85<537){
+var if_less = function () {
+    if ($(window).height - 85 < 537) {
         return 537;
-    }else{
-        return $(window).height-85;
+    } else {
+        return $(window).height - 85;
     }
 }
 
 $(function () {
     $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
-    $(".contain").css("min-height",if_less);
+    $(".contain").css("min-height", if_less);
     $(".fix-nav").smartFloat(0, "navbar-fixed-top");
 
 
@@ -46,6 +46,24 @@ $(function () {
     });
 
     console.log($(".side-bar").offset().top);
+
+    // 页面平滑滚动到锚点 && 地址栏url后缀不带锚点
+
+    $('a[href*="#"],area[href*="#"]').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({
+                        scrollTop: targetOffset
+                    },
+                    500);
+                return false;
+            }
+        }
+    });
+
 });
 
 //--------------------Vue--------------------------------

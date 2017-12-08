@@ -45,37 +45,11 @@
           <time datetime="2017-12-06">2017-12-06</time>
           <div class="blog-content">
             <p>今天我们来做一个Vue.js的清单应用, 作为学习Vue.js的一个小练习, 这里是<a href="https://coolucifer.github.io/vue-list/index.html">成品地址</a>. </p>
-            <h3>一. 页面结构及数据存储</h3>
+            <h3 id="chapt1">一. 确定页面的基础结构及数据存储</h3>
             <p>做一个应用首先要确定页面的基础结构和样式, 确定好各部件的上下级关系, 比如标题, 输入框, 以及待办事项, 已完成事项的位置. 这里先用html建立一个大致的框架.</p>
             <img class="img-responsive center-block" src="http://tu-img-1.aixinxi.net/o_1c0lmhpo4f7m1qir167414akvoja.png-w.jpg" alt="页面框架">
-            <p>确定好框架之后就开始主体部分了. 首先要解决的问题是数据的交互, 正常来说是需要数据库的支持的, 由于这是纯前端项目不会涉及到数据库, 我们可以使用前端的一种存储数据的方式<a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">localStorage</a>来存放数据.</p>
-            <p>localStorage主要是两个方法: <code>setItem()</code>和<code>getItem()</code>, 分别用来创建和取值. 它和sessionStorage的区别在于sessionStorage在关闭页面之后数据就会清空, 而localStorage的数据不会在关闭页面之后清空.</p>
-            <blockquote>
-              <p>localStorage.setItem('myCat', 'Tom');&nbsp;&nbsp;//添加数据</p>
-              <p>localStorage.getItem("myCat");&nbsp;&nbsp;//读取数据</p>
-              <p>localStorage.removeItem("myCat");&nbsp;&nbsp;//删除数据</p>
-            </blockquote>
-            <p>我们可以将localStorage封装到我们自己的js文件中, 使其在项目中更方便的使用. </p>
-            <pre>
-function () {
-  window.ms = {  //将方法暴露出去
-    set: set,
-    get: get,
-  };
-
-  function set(key, val) {  //set()
-    localStorage.setItem(key, JSON.stringify(val));
-  };
-
-  function get(key) {  //get()
-    var json = localStorage.getItem(key);
-    if (json) {
-      return JSON.parse(json);
-    }
-  }
-}</pre>
-          <p>在其他文件里调用方法的时候可以直接使用<code>var task = ms.get('task');</code>来获取数据了.</p>
-          <h3>二. 任务的添加, 删除与更新</h3>
+            
+          <h3 id="chapt2">二. 任务的添加, 删除与更新</h3>
           <p>清单应用的主要功能, 就是任务的添加, 删除与更新(传说中的增删改<del>没有查</del>).</p>
           <p>这是一个基于Vue.js的应用, 当然要新建一个vue组件. 组件中包含了<code>data:{}</code>用来存放数据, 和<code>methods:{}</code>用来设置方法.</p>
           <p>这里的数据分为两种类型: 输入框中正在输入的数据以及任务列表中的数据. 正在输入的数据存储在data中的对象<code>current:{}</code>里, 任务列表存放在数组<code>list:[]</code>里.</p>
@@ -120,8 +94,35 @@ remove: function (id) {
   this.list.splice(index, 1);
 },
 </pre>
-          <h3>三. 与localStorage对接</h3>
-          <p>在挂载时(<code>mounted:</code>)我们要使用get()方法取出localStorage中的数据, 并且在list[]有变动时, 我们都要使用set()方法将它保存到localStorage里, 我们可以通过Vue的侦听器(<code>watch:</code>)来监测list[]是否有变化.</p>
+          <h3 id="chapt3">三. localStorage与对接</h3>
+          <p>在设定好基础功能之后, 下一个问题就是是数据的存储与交互. 正常来说存储数据是需要数据库的支持的, 由于这是纯前端项目不会涉及到数据库, 我们可以使用前端的一种存储数据的方式<a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">localStorage</a>来存放数据.</p>
+          <p>localStorage主要是两个方法: <code>setItem()</code>和<code>getItem()</code>, 分别用来创建和取值. 它和sessionStorage的区别在于sessionStorage在关闭页面之后数据就会清空, 而localStorage的数据不会在关闭页面之后清空.</p>
+          <blockquote>
+            <p>localStorage.setItem('myCat', 'Tom');&nbsp;&nbsp;//添加数据</p>
+            <p>localStorage.getItem("myCat");&nbsp;&nbsp;//读取数据</p>
+            <p>localStorage.removeItem("myCat");&nbsp;&nbsp;//删除数据</p>
+          </blockquote>
+          <p>我们可以将localStorage封装到我们自己的js文件中, 使其在项目中更方便的使用. </p>
+          <pre>
+function () {
+window.ms = {  //将方法暴露出去
+  set: set,
+  get: get,
+};
+
+function set(key, val) {  //set()
+  localStorage.setItem(key, JSON.stringify(val));
+};
+
+function get(key) {  //get()
+  var json = localStorage.getItem(key);
+  if (json) {
+    return JSON.parse(json);
+  }
+}
+}</pre>
+          <p>这样在其他文件里调用方法的时候可以直接使用<code>var task = ms.get('task');</code>来获取数据了.</p>
+          <p>接着是与localStorage的对接. 在挂载时(<code>mounted:</code>)我们要使用get()方法取出localStorage中的数据, 并且在list[]有变动时, 我们都要使用set()方法将它保存到localStorage里, 我们可以通过Vue的侦听器(<code>watch:</code>)来监测list[]是否有变化.</p>
 <pre>
 mounted: function () {
   this.list = ms.get('list') || this.list;
@@ -148,13 +149,16 @@ watch: {
         <div class="side-bar affix-top shadowbox" data-spy="affix">
           <div class="avatar"></div>
           <div class="contact list-group">
-            <a class="list-group-item" href="https://github.com/coolucifer" target="_blank">
-              <img src="./img/github-logo-b.png" /> GitHub
+            <a class="list-group-item" href="#chapt1">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 页面结构及数据存储
             </a>
-            <a class="list-group-item" href="#">
-              <img src="./img/email.png" /> Mail-to</a>
-            <a class="list-group-item" href="#">
-              <img src="./img/qq-penguin-shape.png" /> QQ</a>
+            <a class="list-group-item" href="#chapt2">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 任务的添加, 删除与更新
+            </a>
+            <a class="list-group-item" href="#chapt3">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 与localStorage对接
+            </a>
+            
           </div>
         </div>
       </div>
