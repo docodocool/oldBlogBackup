@@ -106,7 +106,6 @@ a:focus {
 .contain {
     min-width: 800px;
     width: 80%;
-    min-height: 537px;
     /* margin-top: 10px; */
     margin-left: auto;
     margin-right: auto;
