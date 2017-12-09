@@ -30,6 +30,8 @@ $(function () {
     });
     $(window).resize();
 
+    $("side-bar").attr("class", "side-bar affix-top shadowbox");  //初始化side-bar
+
     $(".side-bar").affix({
         offset: {
             top: $(".side-bar").offset().top - 75,
