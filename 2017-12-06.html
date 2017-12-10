@@ -9,6 +9,7 @@
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link href="./css/atom-one-dark.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -56,7 +57,7 @@
           <p>方法存放在<code>methods:{}</code>中, 主要的功能有添加<code>add()</code>, 删除<code>remove()</code>和更新<code>update()</code>.</p>
           <p>通常来说, 我们会在用户在输入框中输入回车<kbd>Enter</kbd>或者点击提交按钮的时候调用添加<code>add()</code>, 因此可以在form中绑定事件<code>@submit.prevent="add"</code>, 在表单提交的时候add()就可以将表单内容添加到数组list[]中.</p>
 <pre>
-methods: {
+ methods: {
   add: function () {
     var title = this.current.title;
     if(!title && title !== 0) return;  //验证输入框内容是否为空
@@ -64,35 +65,35 @@ methods: {
     var todo = Object.assign({}, this.current);  //将数组合并
     this.list.push(todo)
   }
-}
+ }
 </pre>
           <p>对条目进行修改, 更新时我们可以调用update()方法, 然而实际上更新和添加的实现过程大部分是一样的, 因此可以将两个方法结合成一个<code>merge()</code>.</p>
           <p>为了确认在submit的时候是进行添加还是进行更新, 我们可以给merge()传入一个独特的任务id, 当传入任务id的时候为更新, 无参数的时候为添加. 当确认进行更新时, 我们首先要找到即将更新的那项任务</p>
 <pre>
-var is_update = this.current.id;
-if (is_update) {    //如果是添加
+ var is_update = this.current.id;
+ if (is_update) {    //如果是添加
   //.find()返回满足条件的第一个元素,这里是"item.id==is_update"
   var index = this.find_index_by_id(id);
   //vue中修改数组的方式
   Vue.set(this.list, index, Object.assign({}, this.current));
-}else{    //否则
+ }else{    //否则
   ...
-},
+ },
 
-find_index_by_id: function (id) {
+ find_index_by_id: function (id) {
   return this.list.findIndex(function (item) {  //返回符合要求的项的index
     return item.id == id;
   })
-},
+ },
 </pre>
           <p>如果想删除数据, 可以在用户点击按钮的时候调用<code>remove(todo.id)</code>, 可以通过对数组进行.splice()来删除.</p>
 <pre>
-remove: function (id) {
+ remove: function (id) {
   var index = this.find_index_by_id(id);
   //splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目
   //该方法会改变原始数组
   this.list.splice(index, 1);
-},
+ },
 </pre>
           <h3 id="chapt3">三. localStorage与对接</h3>
           <p>在设定好基础功能之后, 下一个问题就是是数据的存储与交互. 正常来说存储数据是需要数据库的支持的, 由于这是纯前端项目不会涉及到数据库, 我们可以使用前端的一种存储数据的方式<a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage/LocalStorage">localStorage</a>来存放数据.</p>
@@ -103,32 +104,32 @@ remove: function (id) {
             <p>localStorage.removeItem("myCat");&nbsp;&nbsp;//删除数据</p>
           </blockquote>
           <p>我们可以将localStorage封装到我们自己的js文件中, 使其在项目中更方便的使用. </p>
-          <pre>
-function () {
-window.ms = {  //将方法暴露出去
+<pre>
+ function () {
+ window.ms = {  //将方法暴露出去
   set: set,
   get: get,
-};
+ };
 
-function set(key, val) {  //set()
+ function set(key, val) {  //set()
   localStorage.setItem(key, JSON.stringify(val));
-};
+ };
 
-function get(key) {  //get()
+ function get(key) {  //get()
   var json = localStorage.getItem(key);
   if (json) {
     return JSON.parse(json);
   }
-}
-}</pre>
+ }
+ }</pre>
           <p>这样在其他文件里调用方法的时候可以直接使用<code>var task = ms.get('task');</code>来获取数据了.</p>
           <p>接着是与localStorage的对接. 在挂载时(<code>mounted:</code>)我们要使用get()方法取出localStorage中的数据, 并且在list[]有变动时, 我们都要使用set()方法将它保存到localStorage里, 我们可以通过Vue的侦听器(<code>watch:</code>)来监测list[]是否有变化.</p>
 <pre>
-mounted: function () {
+ mounted: function () {
   this.list = ms.get('list') || this.list;
-},
+ },
 
-watch: {
+ watch: {
   //每次list发生变化的时候自动执行handler
   list: {
     deep: true,  //无论list嵌套得有多深
@@ -140,12 +141,12 @@ watch: {
       }
      }
   }
-}
+ }
 </pre>
             <h3 id="chapt4">四. 组件化与EventBus</h3>
             <p>我们可以考虑将任务列表组件化, 在本例中我们将未完成任务列表转化为一个Vue组件:</p>
 <pre>
-Vue.component('task', {
+ Vue.component('task', {
   template: '#task-tpl',
   props: ['todo'],
   methods: {
@@ -156,18 +157,18 @@ Vue.component('task', {
       Event.$emit(name, params);
     }
   }
-})
+ })
 </pre>
             <p>这里我们使用了Event作为一个事件的调度中心:<code>var Event = new Vue();</code>, 用来进行子组件与父组件之间的通信. 这时我们要在子组件里触发一个事件<code>Event.$emit(name, params);</code>, 从而可以在父级组件中监控事件.</p>
 <pre>
-mounted: function () {
-  var me = this;
-  Event.$on('remove', function (id) {
-    if(id){
-      me.remove(id);
-    }
-  })
-}
+ mounted: function () {
+   var me = this;
+   Event.$on('remove', function (id) {
+     if(id){
+       me.remove(id);
+     }
+   })
+ }
 </pre>
             <p>同时在组件中的按钮绑定的点击事件也要改为<code>@click="action('remove', todo.id)"</code></p>
           </div>
@@ -203,6 +204,7 @@ mounted: function () {
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
   <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
   <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="./js/highlight.pack.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

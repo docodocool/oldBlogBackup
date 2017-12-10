@@ -9,6 +9,7 @@
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link href="./css/atom-one-dark.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -48,7 +49,7 @@
             <p>表单验证的大致思路就是在input里添加一个按照一定语法写的自定义属性<code>data-rule</code>, 在输入框blur的时候通过不同的data-rule来验证其中的内容符不符合要求, 如果不符合则弹出错误信息.</p>
             <p>首先当然就是如何将data-rule解析成一个个规则, 这里是将它由字符串变成一个对象<code>rule{}</code>.</p>
             <pre>
-function parse_rule() {
+ function parse_rule() {
   // .data方法专门用于用于获取'data-'开头的属性字符串
   // data-rule="min:18|maxlength:10"
   var rule_string = $ele.data('rule');  //相当于获取'data-rule'"
@@ -65,7 +66,7 @@ function parse_rule() {
     // rule['min'] = '18'
     // rule{min:18}
   }
-}
+ }
 </pre>
             <P>这样<code>data-rule="min:18|maxlength:10"</code>就变成了一个<code>rule{min:18,maxlength:10}</code>对象, 可以在验证函数validator()中调用rule.xxx来验证是否符合要求了.</P>
             <p style="text-align:right">2017-11-26</p>
@@ -97,6 +98,7 @@ function parse_rule() {
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
   <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
   <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="./js/highlight.pack.js"></script>
   <script src="./js/main.js"></script>
 </body>
 

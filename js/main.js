@@ -59,6 +59,11 @@ $(function () {
         }
     });
 
+    $(document).ready(function() {  //highlight.js
+        $('pre').each(function(i, block) {
+          hljs.highlightBlock(block);
+        });
+      });
 });
 
 //--------------------Vue--------------------------------

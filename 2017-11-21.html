@@ -9,6 +9,7 @@
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link href="./css/atom-one-dark.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -46,8 +47,8 @@
             <p>So...就重新做了一个首页. 喜欢知乎首页的那种风格, 并且以前也做过一个html/css的练习, 就直接照葫芦画瓢过来了. 然而最重要的两个部分--导航栏的固定在页面顶部以及侧栏的固定在页面特定位置也是折腾了好久.</p>
             <p>首先是导航栏的, 去网上找了一下找到了个"smartFloat()", 就很厚脸皮地照抄过来了, 自己改了一下想增加一下复用性然而最后发现只有导航栏用上了.</p>
             <pre>
-//smartFloat()来自于:http://www.cnblogs.com/bobodeboke/p/4565382.html
-$.fn.smartFloat = function (dis, cla) {
+ //smartFloat()来自于:http://www.cnblogs.com/bobodeboke/p/4565382.html
+ $.fn.smartFloat = function (dis, cla) {
     var position = function (element) {
         var top = element.offset().top; //当前元素element距浏览器上边距
         $(window).scroll(function () { //侦听滚动
@@ -62,8 +63,7 @@ $.fn.smartFloat = function (dis, cla) {
     return $(this).each(function () {
         position($(this));
     });
-};
-            </pre>
+ };</pre>
             <p>smartFloat()的原理主要是将页面滚动的距离与元素距上边框的距离相比较, 滚动距离大于等于上边框距离的时候就对元素addClass(). 说实话最开始看到那个函数的时候我是有些懵逼的, 搞不懂最后面的return()是怎么回事,
               后来问了同学发现是因为内嵌的position()函数, 看来直接抄过来的函数还是用不明白呢.</p>
             <p>剩下的就简单了, bootstrap里有个专门的类"navbar-fixed-top", 可以保证navbar保持在窗口最上不随页面滚动, 那只要在滚动距离大于等于上边距的时候添加这个类就可以了.</p>
@@ -102,6 +102,7 @@ $.fn.smartFloat = function (dis, cla) {
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
   <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
   <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="./js/highlight.pack.js"></script>
   <script src="./js/main.js"></script>
 </body>
 
