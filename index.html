@@ -24,11 +24,6 @@
     <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
     <div class="fix-height">
       <nav class="navbar shadowbox fix-nav" id="anchor">
-        <!-- <div class="container">
-          <a class="nav-item" id="mainpage" type="button" @click="onClick" href="#anchor">首页 </a>
-          <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
-          <a class="nav-item" id="showpractices" type="button" @click="onClick" href="#anchor">&nbsp;小练习</a>
-        </div> -->
         <div class="container">
           <router-link class="nav-item" to="/">首页 </router-link>
           <router-link class="nav-item" to="/blog">&nbsp;blog </router-link>
@@ -40,15 +35,10 @@
       <div class="contain">
         <div class="main-column">
           <div id="content">
-            <!-- <div id="show">
-              <h1>Hello world!</h1>
-              <h1>Hello world!</h1>
-              <h1>Hello world!</h1>
-            </div> -->
             <router-view></router-view>
-
           </div>
         </div>
+        
         <div class="outline">
           <div class="side-bar affix-top shadowbox" data-spy="affix">
             <div class="avatar"></div>
@@ -66,6 +56,54 @@
       </div>
     </div>
   </div>
+
+  <!-- ----------博客列表------------ -->
+  <template id="blog-list">
+    <div>
+      <ul class="post-list list-unstyled">
+        <li class="post-list-item shadowbox">
+          <article id="第一篇blog" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-11-21" datetime="2017-11-21">2017-11-21</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-11-21.html" class="post-title-link">第一篇blog</a>
+            </h3>
+          </article>
+        </li>
+        <li class="post-list-item shadowbox">
+          <article id="jQuery实战: 表单验证(上)" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-11-26" datetime="2017-11-26">2017-11-26</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-11-26.html" class="post-title-link">jQuery实战: 表单验证(上)</a>
+            </h3>
+          </article>
+        </li>
+        <li class="post-list-item shadowbox">
+          <article id="jQuery实战: 表单验证(下)" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-11-29" datetime="2017-11-29">2017-11-29</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-11-29.html" class="post-title-link">jQuery实战: 表单验证(下)</a>
+            </h3>
+          </article>
+        </li>
+        <li class="post-list-item shadowbox">
+          <article id="Vue.js实战: 清单应用" class="article-card">
+            <div class="post-meta">
+              <time class="post-time" title="2017-12-06" datetime="2017-12-06">2017-12-06</time>
+            </div>
+            <h3 class="post-title">
+              <a href="./2017-12-06.html" class="post-title-link">Vue.js实战: 清单应用</a>
+            </h3>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </template>
 
   <!-- <footer class="shadowbox">footerfooterfooter</footer> -->
 

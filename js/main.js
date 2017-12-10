@@ -42,8 +42,9 @@ $(function () {
     console.log($(".side-bar").offset().top);
 
     // 页面平滑滚动到锚点 && 地址栏url后缀不带锚点
+    //http://www.jb51.net/article/65320.htm
 
-    $('a[href*="#"],area[href*="#"]').click(function () {
+    $('.contact > a[href*="#"]').click(function () {
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
             var $target = $(this.hash);
             $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
@@ -120,52 +121,7 @@ var routes = [{
     {
         path: '/blog',
         component: {
-            template: `
-        <div>
-        <ul class="post-list list-unstyled">
-        <li class="post-list-item shadowbox">
-          <article id="第一篇blog" class="article-card">
-            <div class="post-meta">
-              <time class="post-time" title="2017-11-21" datetime="2017-11-21">2017-11-21</time>
-            </div>
-            <h3 class="post-title">
-              <a href="./2017-11-21.html" class="post-title-link">第一篇blog</a>
-            </h3>
-          </article>
-        </li>
-        <li class="post-list-item shadowbox">
-          <article id="jQuery实战: 表单验证(上)" class="article-card">
-            <div class="post-meta">
-              <time class="post-time" title="2017-11-26" datetime="2017-11-26">2017-11-26</time>
-            </div>
-            <h3 class="post-title">
-              <a href="./2017-11-26.html" class="post-title-link">jQuery实战: 表单验证(上)</a>
-            </h3>
-          </article>
-        </li>
-        <li class="post-list-item shadowbox">
-          <article id="jQuery实战: 表单验证(下)" class="article-card">
-            <div class="post-meta">
-              <time class="post-time" title="2017-11-29" datetime="2017-11-29">2017-11-29</time>
-            </div>
-            <h3 class="post-title">
-              <a href="./2017-11-29.html" class="post-title-link">jQuery实战: 表单验证(下)</a>
-            </h3>
-          </article>
-        </li>
-        <li class="post-list-item shadowbox">
-          <article id="Vue.js实战: 清单应用" class="article-card">
-            <div class="post-meta">
-              <time class="post-time" title="2017-12-06" datetime="2017-12-06">2017-12-06</time>
-            </div>
-            <h3 class="post-title">
-              <a href="./2017-12-06.html" class="post-title-link">Vue.js实战: 清单应用</a>
-            </h3>
-          </article>
-        </li>
-      </ul>
-      </div>
-        `
+            template: '#blog-list'
         },
 
     },
