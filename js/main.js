@@ -142,6 +142,7 @@ var routes = [{
           <a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html" class="list-group-item">JQuery实战:表单验证</a>
           <a href="https://coolucifer.github.io/xiuzhentasks/变色九宫格/index.html" class="list-group-item">变色九宫格</a>
           <a href="https://coolucifer.github.io/vue-list/index.html" class="list-group-item">Vue-list</a>
+          <a href="https://coolucifer.github.io/2048/index.html" class="list-group-item">2048</a>
         </div>
       </div>
         `
