@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>2048</title>
+  <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link href="../css/atom-one-dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body data-spy="scroll" data-target=".side-bar">
+  <!-- fix-height用来处理navbar-fixed-top没有高度的问题 -->
+  <div class="fix-height">
+    <nav class="navbar navbar-fixed-top shadowbox" id="anchor">
+      <div class="container">
+        <!-- <a class="nav-item" id="mainpage" type="button" @click="onClick" href="https://coolucifer.github.io/">首页 </a>
+        <a class="nav-item" id="showblog" type="button" @click="onClick" href="#anchor">&nbsp;blog </a>
+        <a class="nav-item" id="showpractices" type="button" @click="onClick" href="https://coolucifer.github.io/">&nbsp;小练习</a> -->
+        <a class="nav-item" id="mainpage" href="https://coolucifer.github.io">首页 </a>
+        <a class="nav-item" id="showblog" href="https://coolucifer.github.io/#/blog">&nbsp;blog </a>
+        <a class="nav-item" id="showpractices" href="https://coolucifer.github.io/#/practices">&nbsp;小练习</a>
+      </div>
+    </nav>
+  </div>
+  <div class="mainpanel">
+    <div class="contain clearfix">
+      <div class="main-column shadowbox">
+        <div id="blog">
+          <div class="blog-content">
+            <iframe style="height:705px;" src="https://coolucifer.github.io/2048/index.html" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="outline">
+        <div class="side-bar affix-top shadowbox" data-spy="affix">
+          <div class="avatar"></div>
+          <div class="contact list-group">
+            <a class="list-group-item" href="https://coolucifer.github.io/2048/index.html" target="_blank">
+              <img src="../img/github-logo-b.png" /> GitHub源码
+            </a>
+            <a class="list-group-item" href="mailto:1045606768@qq.com">
+              <img src="../img/email.png" /> Mail-to</a>
+            <a class="list-group-item" href="http://wpa.qq.com/msgrd?v=3&uin=1045606768&site=qq&menu=yes" target="_blank">
+              <img src="../img/qq-penguin-shape.png" /> QQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <footer class="shadowbox">footerfooterfooter</footer> -->
+
+  <!-- <script src="./node_modules/jquery/dist/jquery.js"></script> -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <!-- <script src="./node_modules/bootstrap/dist/js/bootstrap.js"></script> -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+  <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
+  <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
+  <script src="../js/highlight.pack.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+
+</html>
