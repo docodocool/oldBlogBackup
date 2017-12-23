@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>2048</title>
+  <title>用JS写一个2048</title>
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
-  <link rel="shortcut icon" href="../favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
-  <link href="../css/atom-one-dark.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/main.css">
+  <link href="./css/atom-one-dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body data-spy="scroll" data-target=".side-bar">
@@ -31,8 +31,23 @@
     <div class="contain clearfix">
       <div class="main-column shadowbox">
         <div id="blog">
+          <ul class="pager">
+            <li class="previous">
+              <a href="./2017-12-12.html">
+                <span aria-hidden="true">&larr;</span> 上一篇</a>
+            </li>
+            <li class="next disabled">
+              <a href="">下一篇
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          </ul>
+          <h1>JS写一个2048</h1>
+          <time datetime="2017-12-06">2017-12-06</time>
           <div class="blog-content">
-            <iframe style="height:770px;" src="https://coolucifer.github.io/2048/index.html" frameborder="0"></iframe>
+            <p>最近没找到喜欢的项目视频, 准备自己写点什么看看到底学到如何, 偶然间发现了别人写的贪吃蛇和2048, 便觉得写个这玩意儿也可以当做小练手. 于是在扔了10次硬币之后选择了自己做个2048出来.</p>
+            <p>做游戏嘛, 首先要搞明白规则, 百度上说2048是一位叫Gabriele Cirulli的大佬写的, 便去github上顺藤摸瓜找到了项目主页:<a href="http://gabrielecirulli.github.io/2048/">2048</a>. 玩了一会觉得这种游戏可能不适合自己, 最高玩到1024就死掉了...</p>
+            <p>2048的游戏规则就是可以通过方向键/按钮/念力来让所有方块向同一方向移动, 如果遇到相同的方块就把两个方块上的数字相加生成一个新方块, 每次移动/相加都会在随机空位置生成一个值为2的方块.</p>
           </div>
         </div>
       </div>
@@ -40,13 +55,18 @@
         <div class="side-bar affix-top shadowbox" data-spy="affix">
           <div class="avatar"></div>
           <div class="contact list-group">
-            <a class="list-group-item" href="https://github.com/coolucifer/2048" target="_blank">
-              <img src="../img/github-logo-b.png" /> GitHub源码
+            <a class="list-group-item" href="#chapt1">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 页面结构及数据存储
             </a>
-            <a class="list-group-item" href="mailto:1045606768@qq.com">
-              <img src="../img/email.png" /> Mail-to</a>
-            <a class="list-group-item" href="http://wpa.qq.com/msgrd?v=3&uin=1045606768&site=qq&menu=yes" target="_blank">
-              <img src="../img/qq-penguin-shape.png" /> QQ</a>
+            <a class="list-group-item" href="#chapt2">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 任务的添加, 删除与更新
+            </a>
+            <a class="list-group-item" href="#chapt3">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 与localStorage对接
+            </a>
+            <a class="list-group-item" href="#chapt4">
+              <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> 组件化与EventBus
+            </a>
           </div>
         </div>
       </div>
@@ -61,8 +81,8 @@
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
   <!-- <script src="./node_modules/vue/dist/vue.js"></script> -->
   <script src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script>
-  <script src="../js/highlight.pack.js"></script>
-  <script src="../js/main.js"></script>
+  <script src="./js/highlight.pack.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
