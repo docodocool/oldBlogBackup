@@ -3,7 +3,7 @@ $.fn.smartFloat = function (dis, cla) {
     var position = function (element) {
         var top = element.offset().top; //当前元素element距浏览器上边距
         $(window).scroll(function () { //侦听滚动
-            var scrolls = $(this).scrollTop();
+            var scrolls = $(window).scrollTop();
             if (scrolls - top > dis) { //如果滚动到页面超出了当前元素element的相对页面顶部的高度 
                 element.addClass(cla);
             } else {
@@ -22,23 +22,25 @@ $(function () {
     $(".contain").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));
     $(".main-column").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));
     $(".fix-nav").smartFloat(0, "navbar-fixed-top");
+    $(".side-bar").smartFloat(-75, "side-bar-fixed");  //因为side-bar最开始在屏幕外,滚动距离应该是屏幕大小+屏幕外距离...可能
 
 
     $(window).resize(function () {
         $(".side-bar").width($(".outline").width());
+        // $(".side-bar-fixed").css("left", ($('.outline').position().left));
         $(".avatar").width($(".outline").width() - 20);
         $(".avatar").height($(".outline").width() - 20);
     });
     $(window).resize();
 
-    $("side-bar").attr("class", "side-bar affix-top shadowbox");  //初始化side-bar
+    // $("side-bar").attr("class", "side-bar affix-top shadowbox"); //初始化side-bar
 
-    $(".side-bar").affix({
-        offset: {
-            top: $(".side-bar").offset().top - 75,
-            bottom: ($("footer").outerHeight(true)) + 40,
-        }
-    });
+    // $(".side-bar").affix({
+    //     offset: {
+    //         top: $(".side-bar").offset().top - 75,
+    //         bottom: ($("footer").outerHeight(true)) + 40,
+    //     }
+    // });
 
     console.log($(".side-bar").offset().top);
 
@@ -60,11 +62,11 @@ $(function () {
         }
     });
 
-    $(document).ready(function() {  //highlight.js
-        $('pre').each(function(i, block) {
-          hljs.highlightBlock(block);
+    $(document).ready(function () { //highlight.js
+        $('pre').each(function (i, block) {
+            hljs.highlightBlock(block);
         });
-      });
+    });
 });
 
 //--------------------Vue--------------------------------

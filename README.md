@@ -38,4 +38,6 @@ A:可能是因为网速慢
 将博客列表变成了一个组件  
 添加了代码高亮插件highlight.js,主题为atom-one-dark,不过我还是觉得VSCode的one-dark-pro比较好看
 ## 12-22
-把两个页面嵌进了blog框架里,iframe不是很好用呃...
+把两个页面嵌进了blog框架里,iframe不是很好用呃...  
+## 12-23
+不用affix了,总出bug还搞不明白要怎么解决.还是smartFloat()好用
