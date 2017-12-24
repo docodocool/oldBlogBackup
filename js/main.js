@@ -16,13 +16,22 @@ $.fn.smartFloat = function (dis, cla) {
     });
 };
 
+//html标签转义
+var replaceHTML = function () { //替换<
+    if ($(".code-html").length && $(".code-html").length>0) {  //若存在.code-html
+        var html = $(".code-html").html();
+        var result = html.replace(/</g, '&lt;');
+        $(".code-html").html(result);
+    }
+}
+
 $(function () {
     $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
     $(".contain").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));
     $(".main-column").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));
     $(".fix-nav").smartFloat(0, "navbar-fixed-top");
-    $(".side-bar").smartFloat(-75, "side-bar-fixed");  //因为side-bar最开始在屏幕外,滚动距离应该是屏幕大小+屏幕外距离...可能
+    $(".side-bar").smartFloat(-75, "side-bar-fixed"); //因为side-bar最开始在屏幕外,滚动距离应该是屏幕大小+屏幕外距离...可能
 
 
     $(window).resize(function () {
@@ -61,6 +70,9 @@ $(function () {
             }
         }
     });
+
+    //转义HTM标签
+    replaceHTML();
 
     $(document).ready(function () { //highlight.js
         $('pre').each(function (i, block) {

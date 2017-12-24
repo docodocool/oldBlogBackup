@@ -41,3 +41,6 @@ A:可能是因为网速慢
 把两个页面嵌进了blog框架里,iframe不是很好用呃...  
 ## 12-23
 不用affix了,总出bug还搞不明白要怎么解决.还是smartFloat()好用
+## 12-24
+不用iframe了,直接把框架写进index.html  
+添加了html转义函数replaceHTML(),这样就可以高亮HTML代码了

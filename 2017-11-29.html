@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>jQuery实战: 表单验证(下)</title>
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
@@ -45,19 +45,19 @@
           <h1>jQuery实战: 表单验证(下)</h1>
           <time datetime="2017-11-29">2017-11-29</time>
           <div class="blog-content">
-            <p>上次我们讲到了如何为表单验证制定规则以及对规则的处理, 之后就到了规则的验证阶段.</p>
-            <p>表单验证的第二步就是规则验证, 这里会使用构造器来创建一个构造函数<code>window.Validator()</code>, 这样就可以使每一个input在blur的时候执行<code>this.validator.is_valid()</code>来验证内容了.</p>
+            <p>上次我们讲到了如何为表单验证制定规则以及对规则的处理,之后就到了规则的验证阶段.</p>
+            <p>表单验证的第二步就是规则验证,这里会使用构造器来创建一个构造函数<code>window.Validator()</code>,这样就可以使每一个input在blur的时候执行<code>this.validator.is_valid()</code>来验证内容了.</p>
             <pre>
  //传入input中的内容以及data-rule
- window.Validator = function (val, rule) {
- ...  //验证
+ window.Validator = function (val,rule) {
+ ... //验证
  }
 </pre>
-            <p>对于每个单独的规则, 可以在validator中创建对应的验证函数. 比如<code>data-rule="max:10"</code>, 可以创建对应的<code>validate_max()</code>:</p>
+            <p>对于每个单独的规则,可以在validator中创建对应的验证函数.比如<code>data-rule="max:10"</code>,可以创建对应的<code>validate_max()</code>:</p>
             <pre>
  this.validate_max = function () {
   val = parseFloat(val);  //将传进来的val转换成数字类型
-  return val <= rule.max;  //符合则返回true, 否则返回false
+  return val <= rule.max;  //符合则返回true,否则返回false
  }
 </pre>
             <p>当data-rule是正则表达式(<code>data-rule="pattern:^[a-z0-9]*$"</code>)时,对应的验证函数为:</p>
@@ -91,10 +91,10 @@
   return true;
  }
 </pre>
-            <p>这样表单验证的验证函数部分就完成了, 下一步就是将每个input和validator绑定起来, 这里设立一个监听函数<code>listen()</code>, 当每一个input失去焦点(blur)的时候执行:</p>
+            <p>这样表单验证的验证函数部分就完成了,下一步就是将每个input和validator绑定起来,这里设立一个监听函数<code>listen()</code>,当每一个input失去焦点(blur)的时候执行:</p>
             <pre>
  function listen() {
-  $ele.on('blur', function () {
+  $ele.on('blur',function () {
     var valid = me.validator.is_valid(me.get_val());  //获取输入框内的值
     if (valid)
       $error_ele.hide();  //错误提示
@@ -106,7 +106,7 @@
             <p>最后在整个表单提交的时候进行一个总的验证:</p>
             <pre>
  //在表单提交的时候进行验证
- $form.on('submit', function(event){
+ $form.on('submit',function(event){
   event.preventDefault();  //防止刷新
   $inputs.trigger('blur');
   for(var i = 0; i < inputs.length; i ++){

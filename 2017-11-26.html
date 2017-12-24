@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>jQuery实战: 表单验证(上)</title>
   <!-- <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"> -->
@@ -45,9 +45,9 @@
           <h1>jQuery实战: 表单验证(上)</h1>
           <time datetime="2017-11-26">2017-11-26</time>
           <div class="blog-content">
-            <p>大家好, 这里是我的第二篇博客! 今天来讲一下怎么用jQuery做一个表单验证, 这里是<a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html">成品地址</a>.</p>
-            <p>表单验证的大致思路就是在input里添加一个按照一定语法写的自定义属性<code>data-rule</code>, 在输入框blur的时候通过不同的data-rule来验证其中的内容符不符合要求, 如果不符合则弹出错误信息.</p>
-            <p>首先当然就是如何将data-rule解析成一个个规则, 这里是将它由字符串变成一个对象<code>rule{}</code>.</p>
+            <p>大家好,这里是我的第二篇博客! 今天来讲一下怎么用jQuery做一个表单验证,这里是<a href="https://coolucifer.github.io/jQuery-Form-Validation/index.html">成品地址</a>.</p>
+            <p>表单验证的大致思路就是在input里添加一个按照一定语法写的自定义属性<code>data-rule</code>,在输入框blur的时候通过不同的data-rule来验证其中的内容符不符合要求,如果不符合则弹出错误信息.</p>
+            <p>首先当然就是如何将data-rule解析成一个个规则,这里是将它由字符串变成一个对象<code>rule{}</code>.</p>
             <pre>
  function parse_rule() {
   // .data方法专门用于用于获取'data-'开头的属性字符串
@@ -68,7 +68,7 @@
   }
  }
 </pre>
-            <P>这样<code>data-rule="min:18|maxlength:10"</code>就变成了一个<code>rule{min:18,maxlength:10}</code>对象, 可以在验证函数validator()中调用rule.xxx来验证是否符合要求了.</P>
+            <P>这样<code>data-rule="min:18|maxlength:10"</code>就变成了一个<code>rule{min:18,maxlength:10}</code>对象,可以在验证函数validator()中调用rule.xxx来验证是否符合要求了.</P>
             <p style="text-align:right">2017-11-26</p>
           </div>
         </div>
