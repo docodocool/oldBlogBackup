@@ -17,7 +17,7 @@ $.fn.smartFloat = function (dis, cla) {
 };
 
 //html标签转义
-var replaceHTML = function () { //替换<
+var replaceHTML = function () { //替换'<'
     if ($(".code-html").length && $(".code-html").length>0) {  //若存在.code-html
         var html = $(".code-html").html();
         var result = html.replace(/</g, '&lt;');
