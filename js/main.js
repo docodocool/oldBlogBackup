@@ -26,7 +26,7 @@ var replaceHTML = function () { //替换'<'
 }
 
 $(function () {
-    $("#bgimg").height($(window).height());
+    // $("#bgimg").height($(window).height());
     $(".headerbox").height($(window).height() - 65);
     $(".contain").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));
     $(".main-column").css("min-height", ($(window).height() - 85 < 537) ? 537 : ($(window).height() - 85));

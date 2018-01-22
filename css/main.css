@@ -26,6 +26,8 @@ a:focus {
     position: fixed;
     min-width: 800px;
     width: 100%;
+    /* 自适应宽度100%浏览器innerWidth->CSS3 */
+    width: 100vw; 
     height: 100%;
     background-image: url(../img/index.png);
     background-size: cover;
