@@ -130,10 +130,14 @@ var routes = [{
         path: '/',
         component: {
             template: `
-        <div>
-            <h1>Hello World!</h1>
-            <h1>Hello World!</h1>
-            <h1>Hello World!</h1>
+        <div class="shadowbox" id="blog">
+          <h1>博客全部替换为Vue全家桶:</h1>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+              40%
+            </div>
+          </div>
+          <p>目前在学习vue-cli框架</p>
         </div>
         `
         },
